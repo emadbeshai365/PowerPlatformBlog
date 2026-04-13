@@ -29,7 +29,15 @@ jobs:
 
       - name: Build with Jekyll (trace)
         run: |
-          bundle exec jekyll build --trace --destination ./_site 2>&1
+          set +e
+          OUTPUT=$(bundle exec jekyll build --trace --destination ./_site 2>&1)
+          EXIT_CODE=$?
+          echo "$OUTPUT"
+          if [ $EXIT_CODE -ne 0 ]; then
+            ERROR_LINES=$(echo "$OUTPUT" | grep -A 5 'Error\|error\|Liquid\|SyntaxError' | head -30)
+            echo "::error::BUILD FAILED -- $ERROR_LINES"
+            exit $EXIT_CODE
+          fi
         env:
           JEKYLL_ENV: production
 
