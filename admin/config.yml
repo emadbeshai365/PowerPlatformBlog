@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: emadbeshai365/emadbeshai365.github.io
+  repo: EmadSaad/emadbeshai365.github.io
   branch: main
 
 # Store uploaded images in assets/images/uploads
