@@ -2,14 +2,14 @@ title: "Emad Beshai · Engineering"
 description: >-
   A technical blog on software architecture, system design, and engineering craft.
   Practical depth on backend, cloud, and distributed systems.
-url: "https://EmadSaad.github.io"
-baseurl: "/emadbeshai365.github.io"
+url: "https://emadbeshai365.github.io"
+baseurl: "/PowerPlatformBlog"
 
 author:
   name: "Emad Beshai"
   title: "Software Engineer"
   bio: "Building scalable systems and sharing the hard-won lessons. Focused on distributed systems and backend architecture."
-  github: "EmadSaad"
+  github: "emadbeshai365"
   linkedin: "emadbeshai"
   twitter: "emadbeshai"
 
@@ -43,7 +43,7 @@ twitter:
 social:
   name: Emad Beshai
   links:
-    - https://github.com/EmadSaad
+    - https://github.com/emadbeshai365
     - https://linkedin.com/in/emadbeshai
     - https://twitter.com/emadbeshai
 

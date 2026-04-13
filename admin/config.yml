@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: EmadSaad/emadbeshai365.github.io
+  repo: emadbeshai365/PowerPlatformBlog
   branch: main
 
 # Store uploaded images in assets/images/uploads

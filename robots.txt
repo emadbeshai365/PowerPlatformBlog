@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://emadbeshai365.github.io/sitemap.xml
+Sitemap: https://emadbeshai365.github.io/PowerPlatformBlog/sitemap.xml
 
 # Keep admin panel private from crawlers
 Disallow: /admin/
