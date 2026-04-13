@@ -21,28 +21,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.3'
-          bundler-cache: true
-
-      - name: Build with Jekyll (trace)
-        run: |
-          set +e
-          OUTPUT=$(bundle exec jekyll build --trace --destination ./_site 2>&1)
-          EXIT_CODE=$?
-          echo "$OUTPUT"
-          if [ $EXIT_CODE -ne 0 ]; then
-            ERROR_LINES=$(echo "$OUTPUT" | grep -A 5 'Error\|error\|Liquid\|SyntaxError' | head -30)
-            echo "::error::BUILD FAILED -- $ERROR_LINES"
-            exit $EXIT_CODE
-          fi
-        env:
-          JEKYLL_ENV: production
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+          verbose: false
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
