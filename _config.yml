@@ -3,7 +3,7 @@ description: >-
   A technical blog on software architecture, system design, and engineering craft.
   Practical depth on backend, cloud, and distributed systems.
 url: "https://emadbeshai365.github.io"
-baseurl: "/PowerPlatformBlog"
+baseurl: "/emadbeshai365"
 
 author:
   name: "Emad Beshai"
