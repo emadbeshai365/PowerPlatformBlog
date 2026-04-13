@@ -1,4 +1,4 @@
-# Emad Beshai · Engineering Blog
+# Emad Beshai &middot; Engineering Blog
 
 Technical blog on software architecture, system design, and engineering craft.
 Live at: **https://emadbeshai365.github.io**
@@ -23,7 +23,7 @@ bundle exec jekyll serve --livereload
 **Via Git directly:**
 - Create a file in `_posts/` named `YYYY-MM-DD-your-post-title.md`
 - Add the required front matter (see any existing post as a template)
-- Push to `main` — GitHub Pages auto-deploys in ~1 min
+- Push to `main` &mdash; GitHub Pages auto-deploys in ~1 min
 
 ## Structure
 
@@ -46,6 +46,6 @@ _data/topics.yml → Topic/category definitions
 
 ## Plugins Used
 
-- `jekyll-seo-tag` — title, meta, OG, Twitter card, JSON-LD
-- `jekyll-feed` — RSS feed at `/feed.xml`
-- `jekyll-sitemap` — sitemap at `/sitemap.xml`
+- `jekyll-seo-tag` &mdash; title, meta, OG, Twitter card, JSON-LD
+- `jekyll-feed` &mdash; RSS feed at `/feed.xml`
+- `jekyll-sitemap` &mdash; sitemap at `/sitemap.xml`

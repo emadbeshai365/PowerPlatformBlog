@@ -1,6 +1,6 @@
-/* ══════════════════════════════════════════════
-   Emad Beshai · Engineering — main.js
-   ══════════════════════════════════════════════ */
+/* ============================================══
+   Emad Beshai &middot; Engineering &mdash; main.js
+   ============================================══ */
 
 /* ── 1. Reading progress ── */
 const rbar = document.getElementById('rbar');
@@ -22,7 +22,7 @@ if (backTop) {
   backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-/* ── 3. Dark mode — persisted to localStorage ── */
+/* ── 3. Dark mode &mdash; persisted to localStorage ── */
 const darkBtn   = document.getElementById('dark-btn');
 const themeMeta = document.getElementById('theme-color-meta');
 const DARK_KEY  = 'devlog-dark';

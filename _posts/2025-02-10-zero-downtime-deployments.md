@@ -2,14 +2,14 @@
 layout: post
 title: "Zero-Downtime Deployments: A Practical Checklist"
 date: 2025-02-10
-description: "Blue-green, canary, rolling — and which one to actually use. Includes database migration patterns that won't lock your tables at peak traffic."
+description: "Blue-green, canary, rolling &mdash; and which one to actually use. Includes database migration patterns that won't lock your tables at peak traffic."
 category: "Cloud & DevOps"
 tags: [Cloud & DevOps, Databases]
 read_time: "9 min read"
 featured: false
 ---
 
-Zero-downtime deployment is not a deployment strategy — it is a combination of application design, database practices, and infrastructure patterns working together. Most teams get the infrastructure part right and then discover the database is the bottleneck at 2 AM.
+Zero-downtime deployment is not a deployment strategy &mdash; it is a combination of application design, database practices, and infrastructure patterns working together. Most teams get the infrastructure part right and then discover the database is the bottleneck at 2 AM.
 
 ## The Three Deployment Strategies
 
@@ -48,19 +48,19 @@ Route a small percentage of traffic (1–5%) to the new version. Monitor error r
 
 ## The Database Migration Problem
 
-This is where most zero-downtime deployments fail. A migration that adds `ALTER TABLE orders ADD COLUMN discount_pct DECIMAL` will acquire an `ACCESS EXCLUSIVE` lock on large tables — blocking every read and write for the duration.
+This is where most zero-downtime deployments fail. A migration that adds `ALTER TABLE orders ADD COLUMN discount_pct DECIMAL` will acquire an `ACCESS EXCLUSIVE` lock on large tables &mdash; blocking every read and write for the duration.
 
 ### The Expand-Contract Pattern
 
 Break every breaking schema change into phases:
 
-**Phase 1 — Expand (deploy with old code):**
+**Phase 1 &mdash; Expand (deploy with old code):**
 ```sql
 -- Add the new column, nullable, with no constraints
 ALTER TABLE orders ADD COLUMN discount_pct DECIMAL;
 ```
 
-**Phase 2 — Migrate (background job):**
+**Phase 2 &mdash; Migrate (background job):**
 ```sql
 -- Backfill in batches to avoid lock contention
 UPDATE orders
@@ -69,7 +69,7 @@ WHERE id BETWEEN :start AND :end
   AND discount_pct IS NULL;
 ```
 
-**Phase 3 — Constraint (deploy with new code reading new column):**
+**Phase 3 &mdash; Constraint (deploy with new code reading new column):**
 ```sql
 -- Add NOT NULL constraint only after backfill is complete
 ALTER TABLE orders
@@ -77,7 +77,7 @@ ALTER TABLE orders
   ALTER COLUMN discount_pct SET DEFAULT 0;
 ```
 
-**Phase 4 — Contract (later release, remove old column if applicable).**
+**Phase 4 &mdash; Contract (later release, remove old column if applicable).**
 
 ### Index Creation Without Locking
 
@@ -129,4 +129,4 @@ The `preStop` sleep is underrated. Without it, the pod is removed from service d
 
 ## Conclusion
 
-Zero-downtime deployment is achievable without exotic infrastructure. The application must be designed for it from the start: backward-compatible schema changes, health-aware startup, graceful shutdown. The database migration pattern is the non-obvious part — get that right and the rest follows.
+Zero-downtime deployment is achievable without exotic infrastructure. The application must be designed for it from the start: backward-compatible schema changes, health-aware startup, graceful shutdown. The database migration pattern is the non-obvious part &mdash; get that right and the rest follows.

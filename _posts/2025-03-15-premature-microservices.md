@@ -7,7 +7,7 @@ category: "System Design"
 tags: [System Design, Architecture]
 read_time: "6 min read"
 featured: false
-series: "Scaling Series · Part 2"
+series: "Scaling Series &middot; Part 2"
 ---
 
 Microservices are the default architectural conversation in most engineering teams. The pitch is compelling: independent deployments, technology flexibility, team autonomy. The reality for teams below a certain scale is different: distributed system complexity without the traffic that justifies it.
@@ -16,7 +16,7 @@ Microservices are the default architectural conversation in most engineering tea
 
 ### Network Calls Replace Function Calls
 
-In a monolith, calling `OrderService.create()` is a function call — nanoseconds, in-process, transactional. In microservices, it becomes an HTTP or gRPC call across a network: tens of milliseconds, potentially failing, requiring retry logic, circuit breakers, and distributed tracing.
+In a monolith, calling `OrderService.create()` is a function call &mdash; nanoseconds, in-process, transactional. In microservices, it becomes an HTTP or gRPC call across a network: tens of milliseconds, potentially failing, requiring retry logic, circuit breakers, and distributed tracing.
 
 Every synchronous inter-service call is a point of failure you now own operationally.
 
@@ -24,16 +24,16 @@ Every synchronous inter-service call is a point of failure you now own operation
 
 Monoliths get ACID transactions for free. When an order is created and the inventory is decremented in the same database transaction, either both happen or neither does.
 
-In microservices, this requires sagas, two-phase commit, or accepting eventual consistency. The saga pattern alone — coordinating compensation logic across services — adds weeks of implementation and is a source of subtle bugs.
+In microservices, this requires sagas, two-phase commit, or accepting eventual consistency. The saga pattern alone &mdash; coordinating compensation logic across services &mdash; adds weeks of implementation and is a source of subtle bugs.
 
 ```python
-# In a monolith — one transaction, ACID guarantees
+# In a monolith &mdash; one transaction, ACID guarantees
 with db.transaction():
     order = OrderRepository.create(order_data)
     InventoryRepository.decrement(order.items)
     PaymentRepository.charge(order.total)
 
-# In microservices — saga with compensating transactions
+# In microservices &mdash; saga with compensating transactions
 # If payment fails, you must undo the order and restore inventory.
 # Write that code. Then test it. Then maintain it.
 ```
@@ -46,11 +46,11 @@ Small teams do not have the capacity to own this infrastructure at quality.
 
 ## The Signal to Actually Split
 
-The legitimate reason to move to microservices is **independent scaling and deployment velocity** — and these only matter when:
+The legitimate reason to move to microservices is **independent scaling and deployment velocity** &mdash; and these only matter when:
 
-1. **Different parts of your system have different scaling profiles.** Your search service needs 10× the CPU of your user service. Now isolation pays for itself.
+1. **Different parts of your system have different scaling profiles.** Your search service needs 10&times; the CPU of your user service. Now isolation pays for itself.
 2. **Multiple teams are stepping on each other's deployments.** Conway's Law makes monolith deployments a coordination problem at team scale.
-3. **You have measured the performance of a monolith and found its ceiling.** Not assumed — measured.
+3. **You have measured the performance of a monolith and found its ceiling.** Not assumed &mdash; measured.
 
 ## The Modular Monolith Middle Ground
 
@@ -61,7 +61,7 @@ Before microservices, there is a productive intermediate state: the modular mono
 - One deployment pipeline.
 - Clear internal architecture that makes a future split mechanical.
 
-The modules are your future service boundaries, proven by real usage patterns. When you eventually split, you are extracting a well-understood boundary — not discovering it under distributed systems pressure.
+The modules are your future service boundaries, proven by real usage patterns. When you eventually split, you are extracting a well-understood boundary &mdash; not discovering it under distributed systems pressure.
 
 ## Conclusion
 

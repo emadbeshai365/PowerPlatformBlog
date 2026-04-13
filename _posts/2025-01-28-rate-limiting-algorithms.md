@@ -2,7 +2,7 @@
 layout: post
 title: "Rate Limiting Algorithms Explained with Code"
 date: 2025-01-28
-description: "Token bucket, sliding window log, sliding window counter — each with Python implementations and an honest comparison of trade-offs at scale."
+description: "Token bucket, sliding window log, sliding window counter &mdash; each with Python implementations and an honest comparison of trade-offs at scale."
 category: "Backend"
 tags: [Algorithms, Security]
 read_time: "5 min read"
@@ -76,7 +76,7 @@ class SlidingWindowLog:
 ```
 
 **Characteristics:**
-- Exact — counts every request in a true sliding window.
+- Exact &mdash; counts every request in a true sliding window.
 - O(limit) memory per client in the worst case.
 - Impractical at high limits (storing millions of timestamps).
 
@@ -155,4 +155,4 @@ Two Redis keys per client, two round trips batched into one pipeline. Scales to 
 
 ## Conclusion
 
-Token bucket for burst-tolerant APIs. Sliding window log when you need exact counts at low volume. Sliding window counter for everything else at scale. The Redis implementation of the counter is the production workhorse — simple to reason about, cheap to operate.
+Token bucket for burst-tolerant APIs. Sliding window log when you need exact counts at low volume. Sliding window counter for everything else at scale. The Redis implementation of the counter is the production workhorse &mdash; simple to reason about, cheap to operate.

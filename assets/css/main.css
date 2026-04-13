@@ -1,6 +1,6 @@
-/* ══════════════════════════════════════════════════════
-   Emad Beshai · Engineering — main.css
-   ══════════════════════════════════════════════════════ */
+/* ============================================══════════
+   Emad Beshai &middot; Engineering &mdash; main.css
+   ============================================══════════ */
 
 /* ── Design tokens ── */
 :root {
@@ -99,7 +99,7 @@ img { max-width: 100%; height: auto; display: block; }
 #back-top:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
 
-/* ══════════════════ MASTHEAD ══════════════════ */
+/* ===========═══════ MASTHEAD ===========═══════ */
 .masthead {
   border-bottom: 1px solid var(--rule);
   padding: 0 clamp(1.25rem, 5vw, 4rem);
@@ -178,7 +178,7 @@ img { max-width: 100%; height: auto; display: block; }
 .masthead-nav a.active { border-bottom: 1.5px solid var(--accent); }
 
 
-/* ══════════════════ HERO — IMP #7 (gradient) ══════════════════ */
+/* ===========═══════ HERO &mdash; IMP #7 (gradient) ===========═══════ */
 .hero {
   max-width: var(--wide); margin: 0 auto;
   padding: clamp(3rem, 8vw, 5.5rem) clamp(1.25rem, 5vw, 4rem) 3rem;
@@ -248,7 +248,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 
-/* ══════════════════ QUICK READS — IMP #4 ══════════════════ */
+/* ===========═══════ QUICK READS &mdash; IMP #4 ===========═══════ */
 .quick-reads-section {
   max-width: var(--wide); margin: 0 auto;
   padding: 0 clamp(1.25rem, 5vw, 4rem);
@@ -308,7 +308,7 @@ img { max-width: 100%; height: auto; display: block; }
 [data-dark] .qc-time-badge.red   { background: #450a0a; color: #fca5a5; }
 
 
-/* ══════════════════ PAGE BODY ══════════════════ */
+/* ===========═══════ PAGE BODY ===========═══════ */
 .page-body {
   max-width: var(--wide); margin: 0 auto;
   padding: 0 clamp(1.25rem, 5vw, 4rem);
@@ -334,7 +334,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 
-/* ══════════════════ POSTS COLUMN ══════════════════ */
+/* ===========═══════ POSTS COLUMN ===========═══════ */
 .posts-col {
   border-right: 1px solid var(--rule);
   padding-right: 3rem;
@@ -360,7 +360,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 
-/* ══════════ FEATURED — IMP #1 (accent bg + left border) ══════════ */
+/* ══════════ FEATURED &mdash; IMP #1 (accent bg + left border) ══════════ */
 .featured {
   padding: 1.75rem 1.75rem 1.75rem 1.5rem;
   border-left: 3px solid var(--accent);
@@ -391,7 +391,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 
-/* ══════════════════ POST META ══════════════════ */
+/* ===========═══════ POST META ===========═══════ */
 .post-meta {
   display: flex; align-items: center;
   gap: .85rem; flex-wrap: wrap;
@@ -432,7 +432,7 @@ img { max-width: 100%; height: auto; display: block; }
 [data-dark] .time-red   { color: #fca5a5; }
 
 
-/* ══════════════════ POST LIST — IMP #2 (hover shadow+translate) ══════════════════ */
+/* ===========═══════ POST LIST &mdash; IMP #2 (hover shadow+translate) ===========═══════ */
 .post-list { list-style: none; }
 
 .post-entry {
@@ -479,7 +479,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 
-/* ══════════════════ ASIDE ══════════════════ */
+/* ===========═══════ ASIDE ===========═══════ */
 .aside {
   padding: 0 0 2rem 2.5rem;
   animation: fadeSlide .5s ease .25s both;
@@ -519,7 +519,7 @@ img { max-width: 100%; height: auto; display: block; }
 .alink:hover { color: var(--accent); }
 
 
-/* ══════════ POPULAR THIS MONTH — IMP #8 ══════════ */
+/* ══════════ POPULAR THIS MONTH &mdash; IMP #8 ══════════ */
 .popular-list { list-style: none; }
 .popular-item {
   display: flex; gap: .75rem; align-items: flex-start;
@@ -617,7 +617,7 @@ img { max-width: 100%; height: auto; display: block; }
 .nl-btn:hover { opacity: .88; transform: translateY(-1px); }
 
 
-/* ══════════════════ POST PAGE ══════════════════ */
+/* ===========═══════ POST PAGE ===========═══════ */
 .post-page {
   max-width: var(--wide); margin: 0 auto;
   padding: 0 clamp(1.25rem, 5vw, 4rem);
@@ -825,7 +825,7 @@ img { max-width: 100%; height: auto; display: block; }
 .share-btn:hover { border-color: var(--accent); color: var(--accent); }
 
 
-/* ══════════ RELATED POSTS — IMP #5 ══════════ */
+/* ══════════ RELATED POSTS &mdash; IMP #5 ══════════ */
 .related-posts { margin-top: 3rem; }
 .related-grid {
   display: grid;
@@ -859,7 +859,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 
-/* ══════════════════ FOOTER ══════════════════ */
+/* ===========═══════ FOOTER ===========═══════ */
 footer {
   border-top: 1px solid var(--rule);
   margin-top: 4rem;
@@ -887,7 +887,7 @@ footer {
 }
 
 
-/* ══════════════════ STATIC PAGES ══════════════════ */
+/* ===========═══════ STATIC PAGES ===========═══════ */
 .page-content {
   max-width: 720px; margin: 0 auto;
   padding: clamp(2rem, 6vw, 4rem) clamp(1.25rem, 5vw, 4rem);
@@ -899,7 +899,7 @@ footer {
 }
 
 
-/* ══════════════════ 404 ══════════════════ */
+/* ===========═══════ 404 ===========═══════ */
 .page-404 {
   min-height: 60vh; display: flex;
   flex-direction: column; align-items: center;
@@ -919,7 +919,7 @@ footer {
   color: var(--accent); letter-spacing: .06em;
 }
 
-/* ══════════════════ ANIMATIONS ══════════════════ */
+/* ===========═══════ ANIMATIONS ===========═══════ */
 /* IMP #6: smooth entrance */
 @keyframes up {
   from { opacity: 0; transform: translateY(14px); }
@@ -946,7 +946,7 @@ footer {
   .quick-card:nth-child(4) { animation-delay: .20s; }
 }
 
-/* ══════════════════ ROUGE SYNTAX HIGHLIGHT ══════════════════ */
+/* ===========═══════ ROUGE SYNTAX HIGHLIGHT ===========═══════ */
 .highlight .c  { color: #6e6b65; font-style: italic }
 .highlight .k  { color: #e07050; font-weight: bold }
 .highlight .s  { color: #5a9e6f }

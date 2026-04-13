@@ -19,7 +19,7 @@ collections:
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     preview_path: "{{slug}}"
-    summary: "{{title}} — {{date | date('MMM D, YYYY')}}"
+    summary: "{{title}} &mdash; {{date | date('MMM D, YYYY')}}"
     sortable_fields: ["date", "title", "category"]
     fields:
       - label: "Layout"
@@ -84,13 +84,13 @@ collections:
         name: "series"
         widget: "string"
         required: false
-        hint: "e.g. 'Scaling Series · Part 1' — shown as a badge on post cards"
+        hint: "e.g. 'Scaling Series &middot; Part 1' &mdash; shown as a badge on post cards"
 
       - label: "Cover / OG Image"
         name: "image"
         widget: "image"
         required: false
-        hint: "Used as the Open Graph share image. Ideal: 1200×630px"
+        hint: "Used as the Open Graph share image. Ideal: 1200&times;630px"
 
       - label: "Sidebar Code Filename"
         name: "code_filename"

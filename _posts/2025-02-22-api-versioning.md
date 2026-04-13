@@ -2,7 +2,7 @@
 layout: post
 title: "API Versioning Strategies That Don't Break Clients"
 date: 2025-02-22
-description: "Header versioning, URL versioning, content negotiation — a comparison grounded in real API lifecycle management over years of production usage."
+description: "Header versioning, URL versioning, content negotiation &mdash; a comparison grounded in real API lifecycle management over years of production usage."
 category: "Backend"
 tags: [API Design]
 read_time: "7 min read"
@@ -23,7 +23,7 @@ The version is in the URL path. Every major breaking change gets a new path pref
 **Pros:**
 - Immediately visible in logs, browser history, and error reports.
 - Easy to route at the load balancer or API gateway.
-- Cacheable — URLs are stable and unique per version.
+- Cacheable &mdash; URLs are stable and unique per version.
 
 **Cons:**
 - Resources appear at multiple URLs, violating REST's uniform interface principle (a minor theoretical concern in practice).
@@ -47,14 +47,14 @@ Accept: application/vnd.emadbeshai.v2+json
 ```
 
 **Pros:**
-- Clean URLs — the resource lives at one URL.
+- Clean URLs &mdash; the resource lives at one URL.
 - Version is part of the request semantics, not the resource identity.
 - Works well with consumer-driven contract testing.
 
 **Cons:**
 - Invisible in browser URLs and most logging setups without explicit parsing.
 - Harder to test in a browser without developer tools.
-- Requires header-aware caching rules — CDNs and proxies must vary on the version header.
+- Requires header-aware caching rules &mdash; CDNs and proxies must vary on the version header.
 
 Header versioning is the right choice for internal service-to-service APIs where clients are always code, never humans, and you control both sides.
 
@@ -75,7 +75,7 @@ Clients never update unless they explicitly choose to. Breaking changes only aff
 - Clear changelog: every date-version has a documented diff.
 
 **Cons:**
-- Complex to implement — every breaking change needs version-aware response transformation.
+- Complex to implement &mdash; every breaking change needs version-aware response transformation.
 - Old behaviour must be maintained indefinitely.
 - Testing surface grows with every version.
 

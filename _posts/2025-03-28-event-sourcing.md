@@ -2,7 +2,7 @@
 layout: post
 title: "Event Sourcing: When It Helps and When It Hurts"
 date: 2025-03-28
-description: "A candid look at event sourcing in production — wins in audit trails and temporal queries, and the pain of eventual consistency at 3 am."
+description: "A candid look at event sourcing in production &mdash; wins in audit trails and temporal queries, and the pain of eventual consistency at 3 am."
 category: "Backend"
 tags: [Backend, Architecture]
 read_time: "8 min read"
@@ -13,7 +13,7 @@ Event sourcing is one of those patterns that sounds elegant in every conference 
 
 ## What Event Sourcing Actually Is
 
-Instead of storing current state, you store every state change as an immutable event. The current state is always a projection — a left fold over the event stream.
+Instead of storing current state, you store every state change as an immutable event. The current state is always a projection &mdash; a left fold over the event stream.
 
 ```python
 # Traditional: store current balance
@@ -30,7 +30,7 @@ Your read model is rebuilt from events: `balance = sum(deposits) - sum(withdrawa
 
 ### Complete Audit Trail
 
-Regulatory requirements become trivial. "Show me every change to this record and who made it" is a simple query against the event log — not a retrofitted audit table that misses half the mutations.
+Regulatory requirements become trivial. "Show me every change to this record and who made it" is a simple query against the event log &mdash; not a retrofitted audit table that misses half the mutations.
 
 ### Temporal Queries
 
@@ -87,4 +87,4 @@ Avoid event sourcing when:
 
 ## Conclusion
 
-Event sourcing is a powerful tool with a real operational cost. The audit trail and temporal query benefits are genuine. But the schema evolution problem, the projection management overhead, and the eventual consistency constraints are also genuine. The pattern earns its complexity only when the benefits are required — not just attractive.
+Event sourcing is a powerful tool with a real operational cost. The audit trail and temporal query benefits are genuine. But the schema evolution problem, the projection management overhead, and the eventual consistency constraints are also genuine. The pattern earns its complexity only when the benefits are required &mdash; not just attractive.

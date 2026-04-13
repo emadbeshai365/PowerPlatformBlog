@@ -2,12 +2,12 @@
 layout: post
 title: "Designing a Multi-Tenant Architecture That Actually Scales"
 date: 2025-04-10
-description: "Most multi-tenancy guides stop at row-level security. Here we go deeper — tenant isolation strategies, schema-per-tenant vs shared schema trade-offs, connection pooling at scale, and the subtle failure modes that only appear at 1,000+ tenants."
+description: "Most multi-tenancy guides stop at row-level security. Here we go deeper &mdash; tenant isolation strategies, schema-per-tenant vs shared schema trade-offs, connection pooling at scale, and the subtle failure modes that only appear at 1,000+ tenants."
 category: "System Design"
 tags: [System Design, Databases]
 read_time: "12 min read"
 featured: true
-series: "Scaling Series · Part 1"
+series: "Scaling Series &middot; Part 1"
 code_filename: "tenant_ctx.py"
 code_snippet: |
   @contextmanager
@@ -23,7 +23,7 @@ code_snippet: |
               "RESET app.t")
 ---
 
-When you first build a SaaS product, multi-tenancy feels simple: add a `tenant_id` column to every table, filter every query. Done. But systems grow. What starts as row-level filtering becomes a liability when you reach hundreds — then thousands — of tenants.
+When you first build a SaaS product, multi-tenancy feels simple: add a `tenant_id` column to every table, filter every query. Done. But systems grow. What starts as row-level filtering becomes a liability when you reach hundreds &mdash; then thousands &mdash; of tenants.
 
 This article breaks down the three main isolation models, when each collapses, and what the connection layer looks like under real load.
 
@@ -87,7 +87,7 @@ Use this model only when contractual obligations require it or when a single ten
 
 ## Connection Pooling at Scale
 
-The failure mode nobody talks about: at 1,000 tenants × 25 connections each = 25,000 connections. PostgreSQL defaults to 100. You will hit this wall.
+The failure mode nobody talks about: at 1,000 tenants &times; 25 connections each = 25,000 connections. PostgreSQL defaults to 100. You will hit this wall.
 
 The solution stack:
 1. **PgBouncer** (transaction mode) in front of every replica.
@@ -120,4 +120,4 @@ After running a shared-schema multi-tenant system at significant scale, these ar
 
 The right model depends on scale, compliance requirements, and team capacity. Start with shared schema + RLS for speed, design the context propagation correctly from day one, and plan the migration path to schema-per-tenant before you need it.
 
-The connection pooling layer is where most teams get surprised — address it before you hit a wall at 3 AM.
+The connection pooling layer is where most teams get surprised &mdash; address it before you hit a wall at 3 AM.

@@ -35,16 +35,16 @@ layout: default
           {{ page.date | date: "%-d %B %Y" }}
         </time>
         {% if page.last_modified_at %}
-        <span class="sep" aria-hidden="true">·</span>
+        <span class="sep" aria-hidden="true">&middot;</span>
         <span>Updated {{ page.last_modified_at | date: "%b %-d, %Y" }}</span>
         {% endif %}
-        <span class="sep" aria-hidden="true">·</span>
+        <span class="sep" aria-hidden="true">&middot;</span>
         {% assign mins = page.read_time | remove: " min read" | remove: " min" | plus: 0 %}
         {% if mins <= 4 %}{% assign time_class = "time-green" %}
         {% elsif mins <= 8 %}{% assign time_class = "time-amber" %}
         {% else %}{% assign time_class = "time-red" %}{% endif %}
         <span class="{{ time_class }}">{{ page.read_time }}</span>
-        <span class="sep" aria-hidden="true">·</span>
+        <span class="sep" aria-hidden="true">&middot;</span>
         <span class="pill">{{ page.category }}</span>
         {% for tag in page.tags %}<span class="pill">{{ tag }}</span>{% endfor %}
       </div>
@@ -94,7 +94,7 @@ layout: default
           <a href="{{ rpost.url | relative_url }}" class="related-card" aria-label="{{ rpost.title }}">
             <p class="related-kicker">{{ rpost.category }}</p>
             <p class="related-title">{{ rpost.title }}</p>
-            <p class="related-meta">{{ rpost.date | date: "%b %-d, %Y" }} &nbsp;·&nbsp; {{ rpost.read_time }}</p>
+            <p class="related-meta">{{ rpost.date | date: "%b %-d, %Y" }} &nbsp;&middot;&nbsp; {{ rpost.read_time }}</p>
           </a>
           {% endfor %}
         </div>

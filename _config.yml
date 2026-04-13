@@ -1,4 +1,4 @@
-title: "Emad Beshai · Engineering"
+title: "Emad Beshai &middot; Engineering"
 description: >-
   A technical blog on software architecture, system design, and engineering craft.
   Practical depth on backend, cloud, and distributed systems.
@@ -32,7 +32,7 @@ plugins:
 
 # Feed config
 feed:
-  title: "Emad Beshai · Engineering"
+  title: "Emad Beshai &middot; Engineering"
   path: feed.xml
 
 # SEO defaults

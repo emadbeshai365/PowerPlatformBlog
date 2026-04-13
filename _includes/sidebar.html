@@ -13,7 +13,7 @@
     </nav>
   </div>
 
-  <!-- Popular This Month — IMP #8 -->
+  <!-- Popular This Month &mdash; IMP #8 -->
   <div class="aside-block">
     <p class="aside-head">Popular This Month</p>
     <ul class="popular-list" aria-label="Popular posts">
@@ -24,7 +24,7 @@
         <span class="pop-rank" aria-hidden="true">0{{ forloop.index }}</span>
         <div>
           <a href="{{ post.url | relative_url }}" class="pop-title">{{ post.title }}</a>
-          <p class="pop-meta">{{ post.read_time }} read &nbsp;·&nbsp; {{ post.category }}</p>
+          <p class="pop-meta">{{ post.read_time }} read &nbsp;&middot;&nbsp; {{ post.category }}</p>
         </div>
       </li>
       {% endfor %}

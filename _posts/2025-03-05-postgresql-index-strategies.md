@@ -2,22 +2,22 @@
 layout: post
 title: "PostgreSQL Index Strategies That Changed Our Query Plans"
 date: 2025-03-05
-description: "Partial indexes, covering indexes, expression indexes — with real EXPLAIN ANALYZE output before and after. Numbers don't lie."
+description: "Partial indexes, covering indexes, expression indexes &mdash; with real EXPLAIN ANALYZE output before and after. Numbers don't lie."
 category: "Databases"
 tags: [Databases, Performance]
 read_time: "10 min read"
 featured: false
 ---
 
-Most PostgreSQL performance problems are index problems. Not missing indexes — wrong indexes. This article covers three underused index types that changed real query plans in production, with actual `EXPLAIN ANALYZE` output.
+Most PostgreSQL performance problems are index problems. Not missing indexes &mdash; wrong indexes. This article covers three underused index types that changed real query plans in production, with actual `EXPLAIN ANALYZE` output.
 
 ## 1. Partial Indexes: Index a Subset of Rows
 
 The standard advice is to index columns you query on. The better advice is to index only the rows you actually query.
 
-**The scenario:** An `orders` table with 50 million rows. 98% are in a `completed` status. The application almost exclusively queries `pending` and `processing` orders — about 100,000 rows.
+**The scenario:** An `orders` table with 50 million rows. 98% are in a `completed` status. The application almost exclusively queries `pending` and `processing` orders &mdash; about 100,000 rows.
 
-A full index on `status` is 50M entries. A partial index is 100K entries — 500× smaller, fits in memory, dramatically faster.
+A full index on `status` is 50M entries. A partial index is 100K entries &mdash; 500&times; smaller, fits in memory, dramatically faster.
 
 ```sql
 -- Standard index: 50M entries
@@ -28,7 +28,7 @@ CREATE INDEX idx_orders_active ON orders(status)
 WHERE status IN ('pending', 'processing');
 ```
 
-**EXPLAIN ANALYZE — before:**
+**EXPLAIN ANALYZE &mdash; before:**
 
 ```
 Bitmap Heap Scan on orders  (cost=2847.00..38291.00 rows=51847 width=284)
@@ -60,12 +60,12 @@ An index scan returns the row's `ctid`, then fetches the actual row from the hea
 -- Before: index on created_at only
 CREATE INDEX idx_orders_date ON orders(created_at);
 
--- After: covering index — no heap fetch needed
+-- After: covering index &mdash; no heap fetch needed
 CREATE INDEX idx_orders_date_cover ON orders(created_at)
   INCLUDE (user_id, amount);
 ```
 
-**EXPLAIN ANALYZE — before:**
+**EXPLAIN ANALYZE &mdash; before:**
 
 ```
 Index Scan using idx_orders_date on orders
@@ -94,7 +94,7 @@ If your application queries on `LOWER(email)` or `DATE(created_at)`, a standard 
 -- Queries on lower-cased email fail to use a plain index
 SELECT * FROM users WHERE LOWER(email) = 'user@example.com';
 
--- Expression index — indexes the computed value
+-- Expression index &mdash; indexes the computed value
 CREATE INDEX idx_users_email_lower ON users (LOWER(email));
 ```
 
@@ -127,4 +127,4 @@ Remove unused indexes before adding new ones. Each index slows writes and increa
 1. **Partial indexes** for queries that filter on low-cardinality columns with skewed distributions.
 2. **Covering indexes** for read-heavy queries that select specific columns on large tables.
 3. **Expression indexes** when your queries use functions in `WHERE` clauses.
-4. Always measure — `EXPLAIN (ANALYZE, BUFFERS)` before and after every change.
+4. Always measure &mdash; `EXPLAIN (ANALYZE, BUFFERS)` before and after every change.
