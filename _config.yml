@@ -35,7 +35,7 @@ plugins:
 
 # Feed config
 feed:
-  title: "Emad Beshai &middot; Engineering"
+  title: "Emad Beshai \u00b7 Engineering"
   path: feed.xml
 
 # SEO defaults

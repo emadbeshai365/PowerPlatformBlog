@@ -7,7 +7,7 @@ category: "System Design"
 tags: [System Design, Architecture]
 read_time: "6 min read"
 featured: false
-series: "Scaling Series &middot; Part 2"
+series: "Scaling Series · Part 2"
 ---
 
 Microservices are the default architectural conversation in most engineering teams. The pitch is compelling: independent deployments, technology flexibility, team autonomy. The reality for teams below a certain scale is different: distributed system complexity without the traffic that justifies it.
@@ -27,13 +27,13 @@ Monoliths get ACID transactions for free. When an order is created and the inven
 In microservices, this requires sagas, two-phase commit, or accepting eventual consistency. The saga pattern alone &mdash; coordinating compensation logic across services &mdash; adds weeks of implementation and is a source of subtle bugs.
 
 ```python
-# In a monolith &mdash; one transaction, ACID guarantees
+# In a monolith — one transaction, ACID guarantees
 with db.transaction():
     order = OrderRepository.create(order_data)
     InventoryRepository.decrement(order.items)
     PaymentRepository.charge(order.total)
 
-# In microservices &mdash; saga with compensating transactions
+# In microservices — saga with compensating transactions
 # If payment fails, you must undo the order and restore inventory.
 # Write that code. Then test it. Then maintain it.
 ```

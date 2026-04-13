@@ -7,7 +7,7 @@ category: "System Design"
 tags: [System Design, Databases]
 read_time: "12 min read"
 featured: true
-series: "Scaling Series &middot; Part 1"
+series: "Scaling Series · Part 1"
 code_filename: "tenant_ctx.py"
 code_snippet: |
   @contextmanager

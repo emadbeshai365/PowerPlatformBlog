@@ -17,9 +17,9 @@
   <div class="aside-block">
     <p class="aside-head">Popular This Month</p>
     <ul class="popular-list" aria-label="Popular posts">
-      {% assign popular = site.posts | where_exp: "p", "p.featured == true" | slice: 0, 1 %}
-      {% assign recent  = site.posts | slice: 0, 3 %}
-      {% for post in recent %}
+      {% assign popular = site.posts | where_exp: "p", "p.featured == true" %}
+      {% assign recent  = site.posts %}
+      {% for post in recent limit: 3 %}
       <li class="popular-item">
         <span class="pop-rank" aria-hidden="true">0{{ forloop.index }}</span>
         <div>

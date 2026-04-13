@@ -19,7 +19,7 @@ layout: default
 </section>
 
 <!-- =========== QUICK READS (IMP #4) =========== -->
-{% assign quick = site.posts | where_exp: "p", "p.read_time contains '5' or p.read_time contains '4' or p.read_time contains '3' or p.read_time contains '2'" | slice: 0, 6 %}
+{% assign quick = site.posts | where_exp: "p", "p.read_time contains '5' or p.read_time contains '4' or p.read_time contains '3' or p.read_time contains '2'" %}
 {% if quick.size > 0 %}
 <section class="quick-reads-section" aria-labelledby="qr-heading">
   <div class="sec-label">
@@ -28,7 +28,7 @@ layout: default
     <span class="sec-txt" style="color:var(--ink3);font-size:.58rem">&le; 5 min</span>
   </div>
   <div class="quick-reads" role="list" aria-label="Quick reads &mdash; short posts">
-    {% for post in quick %}
+    {% for post in quick limit: 6 %}
     {% assign mins = post.read_time | remove: " min read" | remove: " min" | plus: 0 %}
     {% if mins <= 4 %}{% assign badge_class = "green" %}
     {% elsif mins <= 8 %}{% assign badge_class = "amber" %}
